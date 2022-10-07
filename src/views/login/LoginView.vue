@@ -7,26 +7,32 @@
                     <label for="username">User name</label>
                 </div>
                 <div class="form-ipt">
-                    <input type="text" id="username">
+                    <input type="text" v-model="form.username" id="username">
                 </div>
                 <div class="form-tip mt-40">
                     <label for="password">Password</label>
                 </div>
                 <div class="form-ipt">
-                    <input type="text" id="password">
+                    <input type="text" v-model="form.password" id="password">
                 </div>
             </div>
-            <div class="btn mt-40 c-ffffff">Sign in</div>
+            <div class="btn mt-40 c-ffffff" @click="Login">Sign in</div>
         </div>
     </div>
 </template>
 
 <script lang="ts" setup>
 import { reactive } from "vue";
+import { useUserStore } from "@/stores/user"
+let User = useUserStore();
 const form = reactive({
     username: '',
     password: '',
 });
+async function Login(){
+    let res = await User.login(form);
+    console.log(res);
+}
 </script>
 
 <style lang="scss" scoped>
