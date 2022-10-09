@@ -13,7 +13,7 @@
                     <label for="password">Password</label>
                 </div>
                 <div class="form-ipt">
-                    <input type="text" v-model="form.password" id="password">
+                    <input type="password" v-model="form.password" id="password">
                 </div>
             </div>
             <div class="btn mt-40 c-ffffff" @click="Login">Sign in</div>
@@ -31,7 +31,9 @@ const form = reactive({
 });
 async function Login(){
     let res = await User.login(form);
-    console.log(res);
+    if(res.status){
+        sessionStorage.setItem('token',res.data.token);
+    }
 }
 </script>
 
@@ -51,7 +53,6 @@ async function Login(){
     background-size: cover;
     /* 设置背景颜色，背景图加载过程中会显示背景色 */
     background-color: #464646;
-
     & .form {
         &>.form-ipt {
             &>input {
