@@ -1,6 +1,6 @@
 <template>
   <div class="user-list">
-    <h1 class="mb-20">用户列表</h1>
+    <Title class="mb-20">用户列表</Title>
     <el-table :data="tableData" border style="width: 100%">
       <el-table-column align="center" prop="username" label="头像" width="140" />
       <el-table-column align="center" prop="username" label="用户名" width="160" />
@@ -18,19 +18,9 @@
   </div>
 </template>
 <script lang="ts" setup>
+
+import Title from '@/components/Title.vue'
 const tableData = [
-  {
-    username: "小明",
-    avatarname: "",
-    id: "",
-    phoneNum: "110",
-  },
-  {
-    username: "小明",
-    avatarname: "",
-    id: "",
-    phoneNum: "110",
-  },
   {
     username: "小明",
     avatarname: "",
@@ -167,6 +157,6 @@ const handleClick2 = function () {
 </script>
 <style scoped>
 .user-list {
-  padding: 20px;
+  /* padding: 20px; */
 }
 </style>

@@ -32,7 +32,7 @@
             <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" />
           </div>
         </el-header>
-        <el-container>
+        <el-container class="container">
           <el-aside width="247px">
             <Menu.Wrapper>
               <template #items>
@@ -81,7 +81,7 @@
             </Menu.Wrapper>
 
           </el-aside>
-          <el-main>
+          <el-main class="main">
             <router-view></router-view>
           </el-main>
         </el-container>
@@ -151,5 +151,12 @@ const handleClose = (key: string, keyPath: string[]) => {
 :deep(.el-menu-item):hover {
   background-color: #e6e7ec;
   border-radius: 10px;
+}
+.container{
+}
+.main{
+  max-height: calc(100vh - 60px);
+  overflow-y: scroll;
+  background-color: #f7f7f7;
 }
 </style>

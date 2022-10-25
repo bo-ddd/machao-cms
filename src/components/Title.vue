@@ -1,9 +1,8 @@
 <template>
     <div class="title">
-        角色权限
+        <slot></slot>
     </div>
 </template>
-
 <style scoped>
 .title {
     font-size: 17px;
