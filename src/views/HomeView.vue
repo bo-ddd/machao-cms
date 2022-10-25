@@ -39,24 +39,28 @@
                 <el-row class="tac">
                   <el-col>
                     <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
+
                       <el-menu-item index="1">
                         <el-icon>
                           <setting />
                         </el-icon>
                         <span>主页</span>
                       </el-menu-item>
-                      <el-menu-item index="2">
-                        <el-icon>
-                          <setting />
-                        </el-icon>
-                        <span>角色创建</span>
-                      </el-menu-item>
-                      <el-menu-item index="5">
-                        <el-icon>
-                          <setting />
-                        </el-icon>
-                        <span>权限管理</span>
-                      </el-menu-item>
+
+                      <el-sub-menu index="1">
+                        <template #title>
+                          <el-icon>
+                            <location />
+                          </el-icon>
+                          <span>权限管理</span>
+                        </template>
+                        <el-menu-item-group title="创建角色">
+                          <el-menu-item index="1-1">新增角色</el-menu-item>
+                          <el-menu-item index="1-2">角色权限</el-menu-item>
+                        </el-menu-item-group>
+                        <el-menu-item index="1-2">创建权限</el-menu-item>
+                        <el-menu-item index="1-3">用户列表</el-menu-item>
+                      </el-sub-menu>
                     </el-menu>
                   </el-col>
                 </el-row>
