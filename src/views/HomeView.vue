@@ -38,28 +38,25 @@
               <template #items>
                 <el-row class="tac">
                   <el-col>
-                    <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
-
-                      <el-menu-item index="1">
+                    <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
+                      router>
+                      <el-menu-item index="1" route="/menu">
                         <el-icon>
                           <setting />
                         </el-icon>
                         <span>主页</span>
                       </el-menu-item>
-
-                      <el-sub-menu index="1">
+                      <el-sub-menu index="2">
                         <template #title>
                           <el-icon>
                             <location />
                           </el-icon>
                           <span>权限管理</span>
                         </template>
-                        <el-menu-item-group title="创建角色">
-                          <el-menu-item index="1-1">新增角色</el-menu-item>
-                          <el-menu-item index="1-2">角色权限</el-menu-item>
-                        </el-menu-item-group>
-                        <el-menu-item index="1-2">创建权限</el-menu-item>
-                        <el-menu-item index="1-3">用户列表</el-menu-item>
+                        <el-menu-item index="1-1" route="/roleList">新增角色</el-menu-item>
+                        <el-menu-item index="1-2" route="/powerList">角色权限</el-menu-item>
+                        <el-menu-item index="1-3" route="/createPower">创建权限</el-menu-item>
+                        <el-menu-item index="1-4" route="/userList">用户列表</el-menu-item>
                       </el-sub-menu>
                     </el-menu>
                   </el-col>
@@ -85,21 +82,7 @@
 
           </el-aside>
           <el-main>
-            <Maintitle.Wrapper>
-              <Maintitle.Item></Maintitle.Item>
-              <Maintitle.Item></Maintitle.Item>
-            </Maintitle.Wrapper>
-            <Slider.Wrapper class="mt-20">
-              <Slider.Item></Slider.Item>
-              <Slider.Item></Slider.Item>
-              <Slider.Item></Slider.Item>
-              <Slider.Item></Slider.Item>
-              <Slider.Item></Slider.Item>
-              <Slider.Item></Slider.Item>
-              <Slider.Item></Slider.Item>
-              <Slider.Item></Slider.Item>
-              <Slider.Item></Slider.Item>
-            </Slider.Wrapper>
+            <router-view></router-view>
           </el-main>
         </el-container>
       </el-container>
@@ -109,9 +92,7 @@
 
 <script setup lang="ts">
 import Menu from '@/components/Menu'
-import Maintitle from '@/components/Maintitle'
 import useUtil from '@/assets/util'
-import Slider from '@/components/Slider'
 import { ref } from 'vue'
 import { Search } from '@element-plus/icons-vue'
 let { parseAsssetFile } = useUtil()
