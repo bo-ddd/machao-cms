@@ -3,7 +3,7 @@
     <Title class="title">角色管理</Title>
     <div class="common-layout">
       <el-container class="container">
-        <el-aside class="aside" width="200px">
+        <el-aside class="aside" width="250px">
           <div class="aside-head">
             <el-button class="add-btn" type="primary" plain>+新增角色</el-button>
           </div>
@@ -25,9 +25,9 @@
           <el-tabs v-model="activeName" class="demo-tabs">
             <el-tab-pane label="角色成员" name="first">
               <el-table :data="tableData" stripe style="width: 100%">
-                <el-table-column prop="date" label="Date" width="180" />
-                <el-table-column prop="name" label="Name" width="180" />
-                <el-table-column prop="address" label="Address" />
+                <el-table-column prop="date" label="姓名" width="180" />
+                <el-table-column prop="name" label="手机号" width="180" />
+                <el-table-column prop="address" label="操作" />
               </el-table>
             </el-tab-pane>
             <el-tab-pane label="功能权限" name="second">功能权限</el-tab-pane>
@@ -41,7 +41,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import Title from "@/components/Title.vue";import {
+import Title from "@/components/Title.vue";
+import {
   Document,
   Menu as IconMenu,
   Location,
@@ -69,6 +70,16 @@ const tableData = [
   },
   {
     date: '2016-05-04',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+  {
+    date: '2016-05-01',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+  {
+    date: '2016-05-01',
     name: 'Tom',
     address: 'No. 189, Grove St, Los Angeles',
   },

@@ -11,7 +11,7 @@
               <span>微信用户odRS...</span>
             </div>
             <div>
-              <el-input v-model="input2" class="w-50 m-2" placeholder="搜索设计项目、超级文档、文件夹等" :prefix-icon="Search" />
+              <!-- <el-input v-model="input2" class="w-50 m-2" placeholder="搜索设计项目、超级文档、文件夹等" :prefix-icon="Search" /> -->
             </div>
           </div>
 

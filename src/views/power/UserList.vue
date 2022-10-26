@@ -14,12 +14,46 @@
         </template>
       </el-table-column>
     </el-table>
-    <el-pagination small background layout="total, sizes, prev, pager, next, jumper" :total="50" class="mt-20" />
+    <el-pagination
+      small
+      background
+      layout="total, sizes, prev, pager, next, jumper"
+      :total="50"
+      class="mt-20"
+    />
+
+    <el-dialog v-model="dialogFormVisible" title="修改用户角色">
+      <el-form :model="form">
+        <!-- <el-form-item label="Promotion name" :label-width="formLabelWidth">
+          <el-input v-model="form.name" autocomplete="off" />
+        </el-form-item> -->
+        <el-form-item label="用户角色" :label-width="formLabelWidth">
+          <el-select v-model="value1" multiple placeholder="Select" style="width: 240px">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            />
+          </el-select>
+        </el-form-item>
+      </el-form>
+
+      <template #footer>
+        <span class="dialog-footer">
+          <el-button @click="dialogFormVisible = false">取消</el-button>
+          <el-button type="primary" @click="dialogFormVisible = false">确认</el-button>
+        </span>
+      </template>
+    </el-dialog>
   </div>
 </template>
 <script lang="ts" setup>
+import Title from "@/components/Title.vue";
+import { reactive, ref } from "vue";
 
-import Title from '@/components/Title.vue'
+const dialogFormVisible = ref(false);
+const formLabelWidth = "140px";
 const tableData = [
   {
     username: "小明",
@@ -148,8 +182,44 @@ const tableData = [
     phoneNum: "110",
   },
 ];
+const value1 = ref([])
+const value2 = ref([])
+const value3 = ref([])
+const options = [
+  {
+    value: 'Option1',
+    label: 'Option1',
+  },
+  {
+    value: 'Option2',
+    label: 'Option2',
+  },
+  {
+    value: 'Option3',
+    label: 'Option3',
+  },
+  {
+    value: 'Option4',
+    label: 'Option4',
+  },
+  {
+    value: 'Option5',
+    label: 'Option5',
+  },
+]
+const form = reactive({
+  name: "",
+  region: "",
+  date1: "",
+  date2: "",
+  delivery: false,
+  type: [],
+  resource: "",
+  desc: "",
+});
 const handleClick = function () {
   console.log("click");
+  dialogFormVisible.value = true;
 };
 const handleClick2 = function () {
   console.log("click2");
