@@ -32,7 +32,7 @@ const form = reactive({
 async function Login(){
     let res = await User.login(form);
     if(res.status){
-        sessionStorage.setItem('token',res.data.token);
+        sessionStorage.setItem('token',res.data);
     }
 }
 </script>

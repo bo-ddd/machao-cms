@@ -20,7 +20,7 @@
                     <label for="password">Confirm password</label>
                 </div>
                 <div class="form-ipt">
-                    <input type="password" v-model="form.confirmPassword">
+                    <input type="password" v-model="confirmPassword">
                 </div>
 
 
@@ -28,7 +28,7 @@
                     <label for="phone">Phone</label>
                 </div>
                 <div class="form-ipt">
-                    <input type="text" v-model="form.phone">
+                    <input type="text" v-model="form.phoneNumber">
                 </div>
             </div>
             <div class="btn mt-40 c-ffffff">Sign up</div>
@@ -38,12 +38,22 @@
 
 <script lang="ts" setup>
 import { reactive } from "vue";
-const form = reactive({
-    username: '',
-    password: '',
-    confirmPassword:'',
-    phone:""
+import { useUserStore } from '@/stores/user'
+let user = useUserStore();
+let confirmPassword = "";
+let form = reactive({
+    username:'',
+    password:'',
+    avatarName:'',
+    phoneNumber:''
 });
+ async function register(){
+    let res = await user.register(form);
+    console.log(res);
+ }
+
+
+
 </script>
 
 <style lang="scss" scoped>
