@@ -12,6 +12,12 @@ interface Register{
     avatarName: string,
     phoneNumber: string
 }
+interface UserList{
+    pageNum: number,
+    pageSize: number
+}
+interface RoleList{
+}
 
 export const useUserStore = defineStore("user", () => {
   function login(payload: Login) {
@@ -21,5 +27,13 @@ export const useUserStore = defineStore("user", () => {
   function register(payload: Register) {
     return Api.register(payload);
   }
-  return { login, register };
+
+  function userList(payload: UserList) {
+    return Api.userList(payload)
+  }
+  
+  function roleList(payload: RoleList) {
+    return Api.userList(payload)
+  }
+  return { login, register, userList,roleList };
 });

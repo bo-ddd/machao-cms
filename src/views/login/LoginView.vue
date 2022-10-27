@@ -31,8 +31,10 @@ const form = reactive({
 });
 async function Login(){
     let res = await User.login(form);
+    console.log(res);
+    
     if(res.status){
-        sessionStorage.setItem('token',res.data);
+        sessionStorage.setItem('token',res.data.token);
     }
 }
 </script>
