@@ -8,6 +8,33 @@ const router = createRouter({
       path: "/",
       name: "home",
       component: HomeView,
+      children: [
+        {
+          path: '/menu',
+          name: 'menu',
+          component: () => import("../views/menu/MenuPage.vue"),
+        },
+        {
+          path: '/powerList',
+          name: 'powerList',
+          component: () => import("../views/power/PowerList.vue"),
+        },
+        {
+          path: '/roleList',
+          name: 'roleList',
+          component: () => import("../views/power/RoleList.vue"),
+        },
+        {
+          path: '/userList',
+          name: 'userList',
+          component: () => import("../views/power/UserList.vue"),
+        },
+        {
+          path: '/createPower',
+          name: 'createPower',
+          component: () => import("../views/power/CreatePower.vue"),
+        },
+      ]
     },
     {
       path: "/about",
@@ -18,10 +45,15 @@ const router = createRouter({
       component: () => import("../views/AboutView.vue"),
     },
     {
-      path:'/login',
-      name:'login',
+      path: '/login',
+      name: 'login',
       component: () => import("../views/login/LoginView.vue"),
-    }
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: () => import("../views/login/Register.vue"),
+    },
   ],
 });
 
