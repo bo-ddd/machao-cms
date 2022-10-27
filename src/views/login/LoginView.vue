@@ -23,7 +23,9 @@
 
 <script lang="ts" setup>
 import { reactive } from "vue";
-import { useUserStore } from "@/stores/user"
+import { useUserStore } from "@/stores/user";
+import { useRouter } from "vue-router";
+let router = useRouter();
 let User = useUserStore();
 const form = reactive({
     username: '',
@@ -34,7 +36,11 @@ async function Login(){
     console.log(res);
     
     if(res.status){
+        console.log(res.data);
         sessionStorage.setItem('token',res.data.token);
+        router.push({
+            path:"/"
+        });
     }
 }
 </script>
