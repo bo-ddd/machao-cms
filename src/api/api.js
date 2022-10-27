@@ -1,11 +1,12 @@
 import axios from 'axios';
+import { config } from 'process';
 
 import { postConfig } from './config'
 
 
 axios.interceptors.request.use(function (config) {
     // 在发送请求之前做些什么,一般配置一些请求头的公共信息；
-    config.headers.authorization = localStorage.getItem('token');
+    config.headers.authorization = sessionStorage.getItem('token');
     return config;
 })
 
@@ -31,4 +32,7 @@ export default {
     login: (params) => {
         return axios.post('/user/login', params, postConfig)
     }
+}
+export const userListApi = function (params = {}) {
+    return axios.post('/user/list', params, postConfig)
 }

@@ -51,9 +51,10 @@
 <script lang="ts" setup>
 import Title from "@/components/Title.vue";
 import { reactive, ref } from "vue";
-
+import {userListApi} from '@/api/api.js'
 const dialogFormVisible = ref(false);
 const formLabelWidth = "140px";
+// userListApi({})
 const tableData = [
   {
     username: "小明",
