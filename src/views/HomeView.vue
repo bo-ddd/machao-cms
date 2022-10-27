@@ -38,9 +38,9 @@
               <template #items>
                 <el-row class="tac">
                   <el-col>
-                    <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
-                      router>
-                      <el-menu-item index="1" route="/menu">
+                    <el-menu :default-active="defaultActive" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" router
+                    >
+                      <el-menu-item index="menu" route="/menu">
                         <el-icon>
                           <setting />
                         </el-icon>
@@ -53,10 +53,10 @@
                           </el-icon>
                           <span>权限管理</span>
                         </template>
-                        <el-menu-item index="1-1" route="/roleList">新增角色</el-menu-item>
-                        <el-menu-item index="1-2" route="/powerList">角色权限</el-menu-item>
-                        <el-menu-item index="1-3" route="/createPower">创建权限</el-menu-item>
-                        <el-menu-item index="1-4" route="/userList">用户列表</el-menu-item>
+                        <el-menu-item index="roleList" route="/roleList">新增角色</el-menu-item>
+                        <el-menu-item index="powerList" route="/powerList">角色权限</el-menu-item>
+                        <el-menu-item index="createPower" route="/createPower">创建权限</el-menu-item>
+                        <el-menu-item index="userList" route="/userList">用户列表</el-menu-item>
                       </el-sub-menu>
                     </el-menu>
                   </el-col>
@@ -93,8 +93,14 @@
 <script setup lang="ts">
 import Menu from '@/components/Menu'
 import useUtil from '@/assets/util'
-import { ref } from 'vue'
+import { ref,computed } from 'vue'
 import { Search } from '@element-plus/icons-vue'
+import {useRoute} from 'vue-router'
+const route=useRoute();
+const defaultActive=computed(()=>{
+  return route.name
+})
+
 let { parseAsssetFile } = useUtil()
 const input1 = ref('')
 const input2 = ref('')
