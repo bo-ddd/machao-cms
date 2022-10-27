@@ -30,5 +30,19 @@ export default {
     //登录
     login: (params) => {
         return axios.post('/user/login', params, postConfig)
+    },
+    
+
+    /**
+         注册接口
+     params : {
+        "username"      用户名，6-20位之间
+        "password"      密码，6-20位之间
+        "avatarName"    昵称，1-12位之间
+        "phoneNumber"   手机号
+     } 
+    */
+    register: (params) => {
+        return axios.post('user/register', params, postConfig)
     }
 }
