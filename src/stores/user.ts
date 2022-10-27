@@ -35,5 +35,9 @@ export const useUserStore = defineStore("user", () => {
   function roleList(payload: RoleList) {
     return Api.userList(payload)
   }
-  return { login, register, userList,roleList };
+  
+  function permissionList(payload: RoleList) {
+    return Api.permissionList(payload)
+  }
+  return { login, register, userList,roleList,permissionList };
 });

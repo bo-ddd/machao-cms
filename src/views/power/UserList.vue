@@ -1,7 +1,7 @@
 <template>
   <div class="user-list">
     <Title class="mb-20">用户列表</Title>
-    <el-table :data="userListdata" border style="width: 100%">
+    <el-table :data="userListdata" height="468" border style="width: 100%">
       <el-table-column align="center" label="头像" width="140">
         <template #default="scoped">
           <div class="avatar-box">

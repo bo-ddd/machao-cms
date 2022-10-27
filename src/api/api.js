@@ -57,5 +57,9 @@ export default {
 
     roleList: (params) => {
         return axios.post('role/list', params, postConfig)
+    },
+    
+    permissionList: (params) => {
+        return axios.post('permission/list', params, postConfig)
     }
 }
