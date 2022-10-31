@@ -18,7 +18,18 @@ interface UserList{
 }
 interface RoleList{
 }
-
+interface PermissionList{
+}
+interface AddPower{
+  permissionName:string,
+  pid:number
+}
+interface deletePower{
+  id:number
+}
+interface userInfo{
+  userId:number
+}
 export const useUserStore = defineStore("user", () => {
   function login(payload: Login) {
     return Api.login(payload);
@@ -33,11 +44,29 @@ export const useUserStore = defineStore("user", () => {
   }
   
   function roleList(payload: RoleList) {
-    return Api.userList(payload)
+    return Api.roleList(payload)
   }
   
-  function permissionList(payload: RoleList) {
+  function permissionList(payload: PermissionList) {
     return Api.permissionList(payload)
   }
-  return { login, register, userList,roleList,permissionList };
+
+  function addRole(payload: PermissionList) {
+    return Api.addRole(payload)
+  }
+  
+  function deleteRole(payload: PermissionList) {
+    return Api.deleteRole(payload)
+  }
+
+  function addPower(payload: AddPower) {
+    return Api.addPower(payload)
+  }
+  function deletePower(payload: deletePower) {
+    return Api.deletePower(payload)
+  }
+  function userInfo(payload: userInfo) {
+    return Api.userInfo(payload)
+  }
+  return { login, register, userList,roleList,permissionList,addRole ,deleteRole,addPower,deletePower,userInfo};
 });

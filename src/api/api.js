@@ -58,8 +58,44 @@ export default {
     roleList: (params) => {
         return axios.post('role/list', params, postConfig)
     },
-    
+
     permissionList: (params) => {
         return axios.post('permission/list', params, postConfig)
-    }
+    },
+
+    /**
+    * @param params <Object>
+    * @param params.userId
+    * @param params.roleId
+    * **/
+    addRole: (params) => {
+        return axios.post('user/addRole', params, postConfig)
+    },
+
+    deleteRole: (params) => {
+        return axios.post('user/deleteRole', params, postConfig)
+    },
+
+    /**
+    * @param params <Object>
+    * @param params.permissionName
+    * @param params.pid
+    * **/
+    addPower: (params) => {
+        return axios.post('permission/add', params, postConfig)
+    },
+    /**
+    * @param params <Object>
+    * @param params.id
+    * **/
+    deletePower: (params) => {
+        return axios.post('permission/delete', params, postConfig)
+    },
+    /**
+    * @param params <Object>
+    * @param params.userId  //如果不传,查询的是自己的用户信息，
+    * **/
+    userInfo: (params) => {
+        return axios.post('user/info', params, postConfig)
+    },
 }

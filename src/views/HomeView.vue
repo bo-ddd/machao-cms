@@ -40,7 +40,7 @@
                   <el-col>
                     <el-menu :default-active="defaultActive" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" router
                     >
-                      <el-menu-item index="menu" route="/menu">
+                      <el-menu-item index="menu">
                         <el-icon>
                           <setting />
                         </el-icon>
@@ -53,10 +53,10 @@
                           </el-icon>
                           <span>权限管理</span>
                         </template>
-                        <el-menu-item index="roleList" route="/roleList">新增角色</el-menu-item>
-                        <el-menu-item index="powerList" route="/powerList">角色权限</el-menu-item>
-                        <el-menu-item index="createPower" route="/createPower">创建权限</el-menu-item>
-                        <el-menu-item index="userList" route="/userList">用户列表</el-menu-item>
+                        <el-menu-item index="roleList" >新增角色</el-menu-item>
+                        <el-menu-item index="powerList" >角色权限</el-menu-item>
+                        <el-menu-item index="createPower" >创建权限</el-menu-item>
+                        <el-menu-item index="userList" >用户列表</el-menu-item>
                       </el-sub-menu>
                     </el-menu>
                   </el-col>
